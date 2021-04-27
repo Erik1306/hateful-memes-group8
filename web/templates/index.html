@@ -1,147 +1,192 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Hateful meme detector</title>
-  </head>
-  <body>
-<style>
-html{
-	background:#f0f0f0;
-	padding:20px;
-}
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<body>
 
-.push_button {
-	position: relative;
-	width:220px;
-	height:40px;
-	text-align:center;
-	color:#FFF;
-	text-decoration:none;
-	line-height:43px;
-	font-family:'Oswald', Helvetica;
-	display: block;
-	margin: 30px;
-}
-.push_button:before {
-	background:#f0f0f0;
-	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#D0D0D0), to(#f0f0f0));
-	
-	-webkit-border-radius:5px;
-	-moz-border-radius:5px;
-	border-radius:5px;
-	
-	-webkit-box-shadow:0 1px 2px rgba(0, 0, 0, .5) inset, 0 1px 0 #FFF; 
-	-moz-box-shadow:0 1px 2px rgba(0, 0, 0, .5) inset, 0 1px 0 #FFF; 
-	box-shadow:0 1px 2px rgba(0, 0, 0, .5) inset, 0 1px 0 #FFF;
-	
-	position: absolute;
-	content: "";
-	left: -6px; right: -6px;
-	top: -6px; bottom: -10px;
-	z-index: -1;
-}
+<!-- Header -->
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+  <div class="w3-center">
+  <h4>ACA MACHINE LEARNING COURSE</h4>
+  <h1 class="w3-xxxlarge w3-animate-bottom">Hateful meme detection</h1>
+  <div class="w3-padding-32">
+    <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="document.getElementById('id01').style.display='block'" style="font-weight:900;">Paper</button>
+  </div>
+  </div>
+  </div>
+</header>
 
-.push_button:active {
-	-webkit-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset;
-	top:5px;
-}
-.push_button:active:before{
-	top: -11px;
-	bottom: -5px;
-	content: "";
-}
-
-.red {
-	text-shadow:-1px -1px 0 #A84155;
-	background: #D25068;
-	border:1px solid #D25068;
-	
-	background-image:-webkit-linear-gradient(top, #F66C7B, #D25068);
-	background-image:-moz-linear-gradient(top, #F66C7B, #D25068);
-	background-image:-ms-linear-gradient(top, #F66C7B, #D25068);
-	background-image:-o-linear-gradient(top, #F66C7B, #D25068);
-	background-image:linear-gradient(to bottom, #F66C7B, #D25068);
-	
-	-webkit-border-radius:5px;
-	-moz-border-radius:5px;
-	border-radius:5px;
-	
-	-webkit-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #AD4257, 0 4px 2px rgba(0, 0, 0, .5);
-	-moz-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #AD4257, 0 4px 2px rgba(0, 0, 0, .5);
-	box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #AD4257, 0 4px 2px rgba(0, 0, 0, .5);
-}
-
-.red:hover {
-	background: #F66C7B;
-	background-image:-webkit-linear-gradient(top, #D25068, #F66C7B);
-	background-image:-moz-linear-gradient(top, #D25068, #F66C7B);
-	background-image:-ms-linear-gradient(top, #D25068, #F66C7B);
-	background-image:-o-linear-gradient(top, #D25068, #F66C7B);
-	background-image:linear-gradient(top, #D25068, #F66C7B);
-}
-
-.blue {
-	text-shadow:-1px -1px 0 #2C7982;
-	background: #75D250;
-	border:1px solid #379AA4;
-	background-image:-webkit-linear-gradient(top, #48C6D4, #3EACBA);
-	background-image:-moz-linear-gradient(top, #48C6D4, #3EACBA);
-	background-image:-ms-linear-gradient(top, #48C6D4, #3EACBA);
-	background-image:-o-linear-gradient(top, #48C6D4, #3EACBA);
-	background-image:linear-gradient(top, #48C6D4, #3EACBA);
-	
-	-webkit-border-radius:5px;
-	-moz-border-radius:5px;
-	border-radius:5px;
-	
-	-webkit-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #338A94, 0 4px 2px rgba(0, 0, 0, .5);
-	-moz-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #338A94, 0 4px 2px rgba(0, 0, 0, .5);
-	box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #338A94, 0 4px 2px rgba(0, 0, 0, .5);
-}
-
-.blue:hover {
-	background: #48C6D4;
-	background-image:-webkit-linear-gradient(top, #3EACBA, #48C6D4);
-	background-image:-moz-linear-gradient(top, #3EACBA, #48C6D4);
-	background-image:-ms-linear-gradient(top, #3EACBA, #48C6D4);
-	background-image:-o-linear-gradient(top, #3EACBA, #48C6D4);
-	background-image:linear-gradient(top, #3EACBA, #48C6D4);
-}
-
-
-.green {
-	text-shadow:-1px -1px 0 #2C7982;
-	background: #75D250;
-	border:1px solid #379AA4;
-	background-image:-webkit-linear-gradient(top, #9DD288, #4A7738);
-	background-image:-moz-linear-gradient(top, #9DD288, #4A7738);
-	background-image:-ms-linear-gradient(top, #9DD288, #4A7738);
-	background-image:-o-linear-gradient(top, #9DD288, #4A7738);
-	background-image:linear-gradient(top, #9DD288, #4A7738);
-	
-	-webkit-border-radius:5px;
-	-moz-border-radius:5px;
-	border-radius:5px;
-	
-	-webkit-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #338A94, 0 4px 2px rgba(0, 0, 0, .5);
-	-moz-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #338A94, 0 4px 2px rgba(0, 0, 0, .5);
-	box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #338A94, 0 4px 2px rgba(0, 0, 0, .5);
-}
-
-.green:hover {
-	background: #48C6D4;
-	background-image:-webkit-linear-gradient(top, #5ABA3E, #9FEC80);
-	background-image:-moz-linear-gradient(top, #5ABA3E, #9FEC80);
-	background-image:-ms-linear-gradient(top, #5ABA3E, #9FEC80);
-	background-image:-o-linear-gradient(top, #5ABA3E, #9FEC80);
-	background-image:linear-gradient(top, #5ABA3E, #9FEC80);
-}
-</style>
-    <a class="push_button red" href="/train">Train</a>
-    <a class="push_button blue" href="/test">Test</a>
-    <a class="push_button green" href="/predict">Predict</a>
-    <div>
-      {% block content %}{% endblock %}
+<div class="w3-row-padding w3-center w3-margin-top">
+<div class="w3-third">
+  <div class="w3-card w3-container" style="min-height:560px">
+  <h3>Train</h3><br>
+  <i class="fa fa-gear w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+    <h5>To train hateful meme detection model you should provide following files:</h5>
+    <ul style="text-align: left;">
+      <li>Full path of root directory</li>
+      <li>Image zip file that should be in root directory</li>
+      <li>Annotation file for train images that should be in root directory</li>
+      <li>Annotation file for test images that should be in root directory</li>
+      <li>Annotation file for validation images that should be in root directory</li>
+    </ul>
+  <div class="w3-padding-32">
+      <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="handle_show('train')" style="font-weight:900;">Train</button>
     </div>
-  </body>
+  </div>
+</div>
+
+<div class="w3-third">
+  <div class="w3-card w3-container" style="min-height:560px">
+  <h3>Test</h3><br>
+  <i class="fa fa-flask w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+  <h5>To test hateful meme detection model you should provide following files:</h5>
+    <ul style="text-align: left;">
+      <li>Full path of root directory</li>
+      <li>Image zip file that should be in root directory</li>
+      <li>Annotation file for test images that should be in root directory</li>
+    </ul>
+  <div class="w3-padding-32">
+      <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="handle_show('test')" style="font-weight:900;">Test</button>
+    </div>
+  </div>
+</div>
+
+<div class="w3-third">
+  <div class="w3-card w3-container" style="min-height:560px">
+  <h3>Predict</h3><br>
+  <i class="fa fa-file-image-o w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+  <h5>To do prediction with trained model you should provide following files:</h5>
+    <ul style="text-align: left;">
+      <li>Full path of root directory</li>
+      <li>Image zip file that should be in root directory</li>
+    </ul>
+  <div class="w3-padding-32">
+      <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="handle_show('predict')" style="font-weight:900;">Predict</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Form train -->
+<div class="w3-container" id="train-form" style="display: none;">
+<form class="w3-container w3-card-4" action="/train_result">
+  <h2>Provide input data information to start Training</h2>
+  <div class="w3-section">
+    <input class="w3-input" type="text" required>
+    <label>Base directory name</label>
+  </div>
+  <div class="w3-section">
+    <input class="w3-input" type="file" required>
+    <label>Images zip file</label>
+  </div>
+  <div class="w3-section">
+    <input class="w3-input" type="file" required>
+    <label>Train annotation file (jsonl)</label>
+  </div>
+  <div class="w3-section">
+    <input class="w3-input" type="file" required>
+    <label>Test annotation file (jsonl)</label>
+  </div>
+  <div class="w3-section">
+    <input class="w3-input" type="file" required>
+    <label>Validation annotation file (jsonl)</label>
+  </div>
+  <br/>
+  <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" type="submit" style="font-weight:900; margin-bottom: 30px;">Train</button>
+</form>
+</div>
+
+<!-- Form Test -->
+<div class="w3-container" id="test-form" style="display: none;">
+<form class="w3-container w3-card-4" action="/test_result">
+  <h2>Provide input data information to start Testing</h2>
+  <div class="w3-section">
+    <input class="w3-input" type="text" required>
+    <label>Base directory name</label>
+  </div>
+  <div class="w3-section">
+    <input class="w3-input" type="file" required>
+    <label>Images zip file</label>
+  </div>
+  <div class="w3-section">
+    <input class="w3-input" type="file" required>
+    <label>Test annotation file (jsonl)</label>
+  </div>
+  <br/>
+  <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" type="submit" style="font-weight:900; margin-bottom: 30px;">Test</button>
+</form>
+</div>
+
+<!-- Form predict -->
+<div class="w3-container" id="predict-form" style="display: none;">
+<form class="w3-container w3-card-4" action="/predict_result">
+  <h2>Provide input data information to start Prediction</h2>
+  <div class="w3-section">
+    <input class="w3-input" type="text" required>
+    <label>Base directory name</label>
+  </div>
+  <div class="w3-section">
+    <input class="w3-input" type="file" required>
+    <label>Images zip file</label>
+  </div>
+  <br/>
+  <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" type="submit" style="font-weight:900; margin-bottom: 30px;">Predict</button>
+</form>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-dark w3-padding-16">
+  <div class="w3-container w3-center">
+  <hr>
+  <h3>Created by</h3>
+</div>
+
+<div class="w3-row-padding"> 
+
+<div class="w3-third">
+<div class="w3-card">
+  <img src="/static/boy.png" alt="Car" style="width: 150px; margin-left: 20px;">
+  <div class="w3-container">
+  <p>Erik Hovhannisyan</p>
+  </div>
+</div>
+</div>
+
+<div class="w3-third">
+<div class="w3-card-4">
+  <img src="/static/girl1.png" alt="Car" style="width: 150px; margin-left: 20px;">
+  <div class="w3-container">
+  <p>Ishkhanuhi Hakobyan</p>
+  </div>
+</div>
+</div>
+
+<div class="w3-third">
+<div class="w3-card-4">
+  <img src="/static/girl2.png" alt="Car" style="width: 150px; margin-left: 20px;">
+  <div class="w3-container">
+  <p>Gayane Melqonyan</p>
+  </div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+  function handle_show(type) {
+    var types = ['train', 'test', 'predict'];
+    for (var i=0; i<types.length; i++){
+       var t = types[i];
+       if (type !== t){
+          document.getElementById(`${t}-form`).style.display = "none";
+       }
+    }
+    document.getElementById(`${type}-form`).style.display = "block";
+  }
+</script>
+</body>
 </html>
+

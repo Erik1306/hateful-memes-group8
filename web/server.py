@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from pathlib import Path
 import zipfile
-from model import HatefulMemesModel
+# from model import HatefulMemesModel
 
 app = Flask(__name__)
 
@@ -9,21 +9,6 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
-
-
-@app.route('/train')
-def train():
-    return render_template('train.html')
-
-
-@app.route('/test')
-def test():
-    return render_template('test.html')
-
-
-@app.route('/predict')
-def predict():
-    return render_template('predict.html')
 
 
 @app.route('/train_result')
@@ -70,9 +55,9 @@ def train_result():
         "early_stop_patience": 3,
     }
 
-    hateful_memes_model = HatefulMemesModel(hparams=hparams)
-    hateful_memes_model.fit()
-    return render_template('train_result.html')
+    # hateful_memes_model = HatefulMemesModel(hparams=hparams)
+    # hateful_memes_model.fit()
+    # return render_template('train_result.html')
 
 
 @app.route('/test_result')
