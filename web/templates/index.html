@@ -14,7 +14,8 @@
   <h4>ACA MACHINE LEARNING COURSE</h4>
   <h1 class="w3-xxxlarge w3-animate-bottom">Hateful meme detection</h1>
   <div class="w3-padding-32">
-    <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="document.getElementById('id01').style.display='block'" style="font-weight:900;">Paper</button>
+    <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="window.open('/paper')" style="font-weight:900;">Paper</button>
+    <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="window.open('https://github.com/Erik1306/hateful-memes-group8')" style="font-weight:900;">Code</button>
   </div>
   </div>
   </div>
@@ -126,11 +127,11 @@
 <form class="w3-container w3-card-4" action="/predict_result">
   <h2>Provide input data information to start Prediction</h2>
   <div class="w3-section">
-    <input class="w3-input" type="text" required>
+    <input class="w3-input" type="text" name="dir_path" required>
     <label>Base directory name</label>
   </div>
   <div class="w3-section">
-    <input class="w3-input" type="file" required>
+    <input class="w3-input" type="file" name="dir_name" required>
     <label>Images zip file</label>
   </div>
   <br/>

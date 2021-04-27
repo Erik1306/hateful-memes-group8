@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 from pathlib import Path
 import zipfile
+import os
 # from model import HatefulMemesModel
 
 app = Flask(__name__)
@@ -9,6 +10,11 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/paper')
+def paper():
+    return render_template('paper.html')
 
 
 @app.route('/train_result')
@@ -69,7 +75,9 @@ def test_result():
 
 @app.route('/predict_result')
 def predict_result():
-    images = request.args.get('images')
+    dir_path = request.args.get('dir_path')
+    dir_name = request.args.get('dir_name')
+    print(dir_path, dir_name)
     return render_template('predict_result.html')
 
 
