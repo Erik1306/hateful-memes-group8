@@ -1,0 +1,67 @@
+{% extends "index.html" %}
+{% block content %}
+<div style="text-align: center;">
+<style>
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+<h2>Wait until prediction will be completed ...</h2>
+
+<div class="loader"></div>
+    </div>
+<script>
+    var request = new XMLHttpRequest();
+    var params = {
+        'dir_name': '{{dir_name}}',
+        'dir_path': '{{dir_path}}',
+    };
+    request.open('POST', '/predict_result');
+    request.send(JSON.stringify(params));
+    request.onload = function() {
+      if (request.status === 200) {
+        var response = JSON.parse(this.responseText);
+        if (response['done']){
+            // long process finished successfully, redirect user
+            window.location = '/prediction?uid=' + response['uid'];
+        }else {
+        // ops, we got an error from the server
+        alert('Something went wrong.');
+      }
+
+      } else {
+        // ops, we got an error from the server
+        alert('Something went wrong.');
+      }
+    };
+
+    request.onerror = function() {
+      // ops, we got an error trying to talk to the server
+      alert('Something went wrong.');
+    };
+
+request.send();
+</script>
+{% endblock %}

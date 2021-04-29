@@ -1,4 +1,49 @@
 {% extends "index.html" %}
 {% block content %}
-predict -result
+
+<h2 class="w3-center">Predictions</h2>
+<div class="w3-content" style="max-width:800px;position:relative">
+
+    {% for img_name in image_names %}
+    <div>
+        <div class="mySlides w3-animate-opacity">
+            <img src="/static/{{dir_name}}/{{img_name}}" alt="{{img_name}}" style="width:100%">
+            {% if predictions[img_name] == 'hateful' %}
+            <i class="fa fa-thumbs-down" style="font-size:30px; color:red;" aria-hidden="true"></i>
+            {% else %}
+            <i class="fa fa-thumbs-up" style="font-size:30px; color:green;" aria-hidden="true"></i>
+            {% endif %}
+        </div>
+    </div>
+
+    {% endfor %}
+
+<a class="w3-button w3-hover-dark-grey" style="position:absolute;top:45%;left:0;" onclick="plusDivs(-1)">❮</a>
+<a class="w3-button w3-hover-dark-grey" style="position:absolute;top:45%;right:0;" onclick="plusDivs(+1)">❯</a>
+</div>
+<hr>
+<div class="w3-border">
+<div class="w3-bar w3-theme">
+  <button class="w3-bar-item w3-button testbtn w3-padding-16" onclick="openCity(event,'London')">Download</button>
+</div></div>
+<script>
+    var slideIndex = 1;
+
+function plusDivs(n) {
+  slideIndex = slideIndex + n;
+  showDivs(slideIndex);
+}
+
+function showDivs(n) {
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+
+showDivs(1);
+</script>
 {% endblock %}

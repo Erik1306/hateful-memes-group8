@@ -11,7 +11,7 @@
 <!-- Header -->
 <header class="w3-container w3-theme w3-padding" id="myHeader">
   <div class="w3-center">
-  <h4>ACA MACHINE LEARNING COURSE</h4>
+  <h4>ACA MACHINE LEARNING PROJECT</h4>
   <h1 class="w3-xxxlarge w3-animate-bottom">Hateful meme detection</h1>
   <div class="w3-padding-32">
     <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="window.open('/paper')" style="font-weight:900;">Paper</button>
@@ -72,28 +72,33 @@
 </div>
 </div>
 
+<!-- Predication -->
+<div id="content">
+{% block content %}{% endblock %}
+</div>
+
 <!-- Form train -->
 <div class="w3-container" id="train-form" style="display: none;">
 <form class="w3-container w3-card-4" action="/train_result">
   <h2>Provide input data information to start Training</h2>
   <div class="w3-section">
-    <input class="w3-input" type="text" required>
+    <input class="w3-input" type="text" name="base_dir" required>
     <label>Base directory name</label>
   </div>
   <div class="w3-section">
-    <input class="w3-input" type="file" required>
+    <input class="w3-input" type="file" name="images" required>
     <label>Images zip file</label>
   </div>
   <div class="w3-section">
-    <input class="w3-input" type="file" required>
+    <input class="w3-input" type="file" name="train" required>
     <label>Train annotation file (jsonl)</label>
   </div>
   <div class="w3-section">
-    <input class="w3-input" type="file" required>
+    <input class="w3-input" type="file" name="test" required>
     <label>Test annotation file (jsonl)</label>
   </div>
   <div class="w3-section">
-    <input class="w3-input" type="file" required>
+    <input class="w3-input" type="file" name="dev" required>
     <label>Validation annotation file (jsonl)</label>
   </div>
   <br/>
@@ -106,15 +111,15 @@
 <form class="w3-container w3-card-4" action="/test_result">
   <h2>Provide input data information to start Testing</h2>
   <div class="w3-section">
-    <input class="w3-input" type="text" required>
+    <input class="w3-input" type="text" name="dir_path" required>
     <label>Base directory name</label>
   </div>
   <div class="w3-section">
-    <input class="w3-input" type="file" required>
+    <input class="w3-input" type="file" name="dir_name" required>
     <label>Images zip file</label>
   </div>
   <div class="w3-section">
-    <input class="w3-input" type="file" required>
+    <input class="w3-input" type="file" name="jsonl" required>
     <label>Test annotation file (jsonl)</label>
   </div>
   <br/>
@@ -179,6 +184,7 @@
 <script>
   function handle_show(type) {
     var types = ['train', 'test', 'predict'];
+    document.getElementById('content').style.display = "none";
     for (var i=0; i<types.length; i++){
        var t = types[i];
        if (type !== t){
